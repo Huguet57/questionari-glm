@@ -12,10 +12,10 @@ Dubtes I:
 + Es calcula fent, phi·V(mu), on phi és el dispersion parameter, V és particular de cada distribució i mu és E(Y) (o predict(m, type="response")).
 
 Dubtes II:
-1.- *ModA,B Ap. 5: quan pregunten el S[H | Days = X] he de multiplicar l'stand1ard error per la derivada també? Demanen l'standard error del predict type="response", no?*
+- *ModA,B Ap. 5: quan pregunten el S[H | Days = X] he de multiplicar l'stand1ard error per la derivada també? Demanen l'standard error del predict type="response", no?*
 
-2.- *Què és l'"estimation of the scale parameter obtained with the Perason statistic" i com es calcula amb l'R (o on es troba al summary)? És el mateix que el coeficient de Days de la beta barret? Ens estan preguntant el mateix?*
+- *Què és l'"estimation of the scale parameter obtained with the Perason statistic" i com es calcula amb l'R (o on es troba al summary)? És el mateix que el coeficient de Days de la beta barret? Ens estan preguntant el mateix?*
 
-3.- *Com sabem si el model "fits the mean of H" amb l'anova? Si el p-value és menor a 0.05?*
+- *Com sabem si el model "fits the mean of H" amb l'anova? Si el p-value és menor a 0.05?*
 
-4.- *Com sabem si existeix "homoscedasticity" en els Pearson residuals? Si el p-value del leveneTest dels residuals és menor a 0.05?*
+- *Com sabem si existeix "homoscedasticity" en els Pearson residuals? Si el p-value del leveneTest dels residuals és menor a 0.05?*
