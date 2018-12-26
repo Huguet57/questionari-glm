@@ -14,8 +14,8 @@ Dubtes I:
 Dubtes II:
 - *ModA,B Ap. 5: quan pregunten el S[H | Days = X] he de multiplicar l'stand1ard error per la derivada també? Demanen l'standard error del predict type="response", no?*
 
-- *Què és l'"estimation of the scale parameter obtained with the Perason statistic" i com es calcula amb l'R (o on es troba al summary)? És el mateix que el coeficient de Days de la beta barret? Ens estan preguntant el mateix?*
+- *ModB Ap. 1 : Què és l'"estimation of the scale parameter obtained with the Perason statistic" i com es calcula amb l'R (o on es troba al summary)? És el mateix que el coeficient de Days de la beta barret? Ens estan preguntant el mateix?*
 
-- *Com sabem si el model "fits the mean of H" amb l'anova? Si el p-value és menor a 0.05?*
+- *ModB,C Ap 3: Com sabem si el model "fits the mean of H" amb l'anova? Si el p-value és menor a 0.05?*
 
-- *Com sabem si existeix "homoscedasticity" en els Pearson residuals? Si el p-value del leveneTest dels residuals és menor a 0.05?*
+- *ModB,C Ap 4: Com sabem si existeix "homoscedasticity" en els Pearson residuals? Si el p-value del leveneTest dels residuals és menor a 0.05?*
