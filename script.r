@@ -75,7 +75,7 @@ print(cbind(mu = pred$fit,
             sd = summary(m2)$sigma))
 
 # ------------------------
-# Response with variance function = mu and link = log
+# Response with variance function = mu and link = log (~ Poisson)
 # ------------------------
 
 # Ap. 1
@@ -94,19 +94,6 @@ which(abs(rstandard(m3)) > 2)
 
 # Ap. 5
 customDays <- data.frame(Days=c(0, 105, 150))
-print(summary(m2)$sigma)
-pred <- predict(m2, customDays, se.fit = T, type="response")
+pred <- predict(m3, customDays, se.fit = T, type="response")
 print(cbind(mu = pred$fit,
-            se = pred$se.fit,
-            sd = summary(m2)$sigma))
-
-
-
-with(dd, plot(predict(m1,ty="response"), ty="l",
-              xlim=c(min(Days),max(Days)),
-              ylim=c(min(H), max(H))))
-
-with(dd,points(Days,H,col="red",pch="+"))
-
-plot(predict(m1, ty="response"))
-with(dd, points(Days, H, col="red"))
+            se = pred$se.fit))
