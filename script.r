@@ -19,7 +19,6 @@ plot(dd$Days, predict(m1, type="response"), type="l")
 with(dd, points(Days, H, col="red", pch="+"))
 
 # Ap. 2
-plot(m1, which=1)
 plot(rstandard(m1, type="pearson"))
 abline(h=c(-2,0,2))
 which(abs(rstandard(m1)) > 2)
@@ -38,8 +37,15 @@ print(leveneTest(resid(m1, type="pearson")~FDays))
 # Ap. 5
 customDays <- data.frame(Days=c(0, 105, 150))
 pred <- predict(m1, customDays, se.fit = T, type="response")
-print(cbind(mu = pred$fit,
+
+mu_1 <- pred$fit
+phi_1 <- summary(m1)$dispersion
+var_gaussian <- phi_1*1 # normal: V(mu) = 1
+
+print(cbind(mu = mu_1,
+            var = var_gaussian,
             se = pred$se.fit))
+
 
 # ------------------------
 # Gamma amb link = log
@@ -72,7 +78,13 @@ print(leveneTest(resid(m2, type="pearson")~FDays))
 # Ap. 5
 customDays <- data.frame(Days=c(0, 105, 150))
 pred <- predict(m2, customDays, se.fit = T, type="response")
-print(cbind(mu = pred$fit,
+
+mu_2 <- pred$fit
+phi_2 <- summary(m2)$dispersion
+var_gamma <- phi_2*mu_2*mu_2 # Gamma: V(mu) = mu*mu
+
+print(cbind(mu = mu_2,
+            var = var_gamma,
             se = pred$se.fit))
 
 # ------------------------
@@ -93,8 +105,15 @@ abline(h=c(-2,0,2))
 which(abs(rstandard(m3)) > 2)
 
 # Ap. 3
+FDays <- as.factor(dd$Days)
+m3f <-glm(H ~ Days + FDays,
+          family=quasi(link="log", variance="mu"),
+          data=dd)
+
+anova(m3, m3f, test="F")
 
 # Ap. 4
+print(leveneTest(resid(m2, type="pearson")~FDays))
 
 # Ap. 5
 customDays <- data.frame(Days=c(0, 105, 150))
@@ -105,7 +124,8 @@ phi3 <- summary(m3)$dispersion
 var_poisson <- phi3*mu3 # poisson: V(mu) = mu
 
 print(cbind(Var = var_poisson,
-            Days = customDays))
+            Days = customDays,
+            se = pred$se.fit))
 
 # Ap. 6
 # question 17
