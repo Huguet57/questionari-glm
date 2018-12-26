@@ -71,8 +71,7 @@ print(leveneTest(resid(m2, type="pearson")~FDays))
 customDays <- data.frame(Days=c(0, 105, 150))
 pred <- predict(m2, customDays, se.fit = T, type="response")
 print(cbind(mu = pred$fit,
-            se = pred$se.fit,
-            sd = summary(m2)$sigma))
+            se = pred$se.fit))
 
 # ------------------------
 # Response with variance function = mu and link = log (~ Poisson)
