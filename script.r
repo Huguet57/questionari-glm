@@ -131,7 +131,7 @@ leveneTest(resid(m1, type="pearson")~FDays)
 leveneTest(resid(m2, type="pearson")~FDays)
 leveneTest(resid(m3, type="pearson")~FDays)
 
-# question 19
+# questions 19 and 20
 mu <- c()
 phi <- c()
 var <- c()
